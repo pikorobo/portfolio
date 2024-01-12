@@ -1,0 +1,329 @@
+@charset "UTF-8";
+#header {
+  height: 7vh; /*高さ指定*/
+  width: 100%; /*横幅指定*/
+  /*以下はレイアウトのためのCSS*/
+  display: flex;
+  align-items: center;
+  background: white;
+  color: #000000;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.8);
+  box-sizing: border-box;
+  justify-content: right;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul li a {
+  display: block;
+  text-decoration: none;
+  color: #000000;
+  padding: 10px;
+  transition: all 0.3s;
+}
+
+nav ul li.current a,
+nav ul li a {
+  padding-bottom: 5px;
+  position: relative;
+}
+
+nav ul li a::before {
+  background: #000000;
+  content: "";
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  transform-origin: right top;
+  transform: scale(0, 1);
+  transition: transform 0.3s;
+}
+
+nav ul li a:hover::before {
+  transform-origin: left top;
+  transform: scale(1, 1);
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 90px;
+  border: 2px solid #808080;
+  border-radius: 5px;
+  transition: 0.5s;
+  margin: 0;
+  padding: 2px;
+}
+
+.contact:hover {
+  color: #000000;
+  background: #fff;
+}
+
+.contact img {
+  width: 30px;
+}
+
+.contact p {
+  margin: 0;
+}
+
+.about-inner {
+  width: 60vw;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.about-container {
+  display: flex;
+  justify-content: left;
+  gap: 5vw;
+  padding: 10px;
+}
+
+.about-img {
+  width: 30%;
+}
+
+.about-img img {
+  width: 100%;
+}
+
+.aboutme {
+  margin: auto;
+}
+
+.about-container h2 {
+  text-align: left;
+}
+
+.skill-inner {
+  width: 60vw;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.skill-wrapper {
+  display: flex;
+  flex-flow: wrap;
+}
+
+.skill-container {
+  width: 30vw;
+  display: flex;
+  align-items: center;
+  margin: 20px 0 20px;
+}
+
+.skill-img {
+  width: 10vw;
+  height: 10vh;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.skill-img img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.skill-title {
+  font-size: large;
+  font-weight: bold;
+}
+
+.skill-text {
+  width: 20vw;
+  display: block;
+}
+
+.cert-inner {
+  width: 60vw;
+  margin: auto;
+}
+
+.cert-img {
+  width: 10vw;
+  padding: 10px;
+  height: auto;
+  box-sizing: border-box;
+}
+
+.cert-img img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.cert-container {
+  display: flex;
+  align-items: center;
+}
+
+.cert-text {
+  display: block;
+  line-height: 125%;
+}
+
+.cert-title {
+  font-size: large;
+  font-weight: bold;
+}
+
+.works-inner {
+  width: 60vw;
+  margin: auto;
+  justify-content: center;
+}
+
+.works-container {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  display: block;
+  width: 25vw;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.8);
+  margin: 20px;
+}
+
+.card-img {
+  width: 100%;
+  height: 80%;
+  background: #bbb;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.card-img img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  transform: scale(1.5);
+  transition-duration: 0.5s;
+}
+
+.card-img img:hover {
+  transform: scale(1, 1);
+  transition-duration: 0.5s;
+}
+
+.card-text {
+  width: 100%;
+  height: auto;
+  padding: 10px 10px;
+  box-sizing: border-box;
+}
+
+.card-title {
+  font-size: large;
+  font-weight: bold;
+  line-height: 125%;
+  border-bottom: solid 1px black;
+}
+
+.card-content {
+  font-size: small;
+  line-height: 125%;
+}
+
+footer {
+  text-align: center;
+  background: #333;
+}
+
+footer p {
+  padding-top: 10px;
+  color: #fff;
+  margin-bottom: 0;
+}
+
+footer a {
+  font-size: large;
+  color: #fff;
+}
+
+small {
+  color: #fff;
+  display: block;
+  text-align: center;
+  padding: 20px;
+}
+
+@media screen and (max-width: 480px) {
+  .about-container {
+    display: flex;
+    flex-flow: column;
+  }
+  .about-inner {
+    width: 90vw;
+  }
+  .about-img {
+    width: 60%;
+  }
+  .skill-inner {
+    width: 90vw;
+    margin-bottom: 40px;
+  }
+  .skill-wrapper {
+    display: block;
+  }
+  .skill-container {
+    width: 90vw;
+  }
+  .skill-img {
+    width: 30vw;
+  }
+  .skill-text {
+    width: 60vw;
+  }
+  .cert-inner {
+    width: 90vw;
+  }
+  .cert-img {
+    width: 30vw;
+  }
+  .cert-text {
+    width: 60vw;
+  }
+  .works-inner {
+    width: 90vw;
+  }
+  .works-container {
+    display: flex;
+    flex-flow: column;
+  }
+  .card {
+    width: 90vw;
+    margin: 10px;
+  }
+  .card-img {
+    height: 20vh;
+  }
+  .card-title {
+    font-size: 16px;
+  }
+}/*# sourceMappingURL=index.css.map */
