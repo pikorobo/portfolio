@@ -126,10 +126,11 @@ nav ul li a:hover::before {
 }
 .comment-content{
   margin: 0;
+  white-space: pre-wrap;
 }
 .comment-text {
   margin-left: 15px;
-  width: 70%;
+  width: 80%;
   background: #fff;
   padding: 0.5em 0.5em 0.5em!important;
   border-radius: 10px;
