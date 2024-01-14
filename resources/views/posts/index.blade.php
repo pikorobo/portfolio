@@ -35,7 +35,6 @@
 
     <div class="blog">
       <div class="blog-inner">
-        @extends('layouts.app')
         <h1>Blog</h1>
         <ul>
             @foreach ($posts as $post)
@@ -43,11 +42,20 @@
                 <h2>{{ $post->title }}</h2>
                 <p>{!! $post->body !!}</p>
                 <p class="date">投稿日時:{!! $post->created_at !!}</p>
-                <div class="comments">
+                <div class="comment-container">
+                  <h3>コメント</h3>
                   @foreach ($comments as $comment)
                     @if($post["id"] == $comment["post_id"])
-                    <p>{!! $comment->nickname !!}</p>
-                    <p>{!! $comment->comment !!}</p>
+                    <div class="comment">
+                      <div class="comment-img">
+                        <img src="../images/usericon.svg" class="user-img">
+                      </div>
+                      <div class="comment-text">
+                        <h4 class="nickname">{!! $comment->nickname !!}さん</h4>
+                        <p class="comment-content">{!! $comment->comment !!}</p>
+                        <p class="date">コメント日時:{!! $comment->created_at !!}</p>
+                      </div>
+                    </div>
                     @endif
                   @endforeach
                 </div>
@@ -57,9 +65,22 @@
                     $post_id = $post["id"];
                   ?>
                   <input type="hidden" value=<?php echo $post_id ?> name="post_id">
-                  <input type="text" name="nickname" id="nickname" value="{{ old('nickname'); }}">
-                  <input type="text" name="comment" id="comment" value="{{ old('comment'); }}">
-                  <input type="submit">
+                  <div class="Form-Item">
+                    <p class="Form-Item-Label isMsg">
+                      <span class="Form-Item-Label-Required">必須</span>お名前(最大10文字)
+                    </p>
+                    <input type="text" class="Form-Item-Input" name="nickname" id="nickname" value="{{ old('nickname'); }}">
+                  </div>
+                  
+                  <div class="Form-Item">
+                    <p class="Form-Item-Label isMsg">
+                      <span class="Form-Item-Label-Required">必須</span>コメント内容(最大200文字)
+                    </p>
+                    <textarea name="comment" class="Form-Item-Textarea" id="comment" value="{{ old('comment'); }}"></textarea>
+                  </div>
+                  <div class="Form-Button">
+                    <input type="submit" value="送信する" class="button">
+                  </div>
                 </form>
             </div>
             @endforeach

@@ -110,6 +110,144 @@ nav ul li a:hover::before {
   max-width: 50vw;
 }
 
+.content h3 {
+  border-bottom: solid 2px #e1e1e1;
+  margin: 0;
+}
+
+.user {
+  display: flex;
+}
+
+.user-img {
+  position: relative;
+  top: 8px;
+  width: 35px;
+  height: auto;
+}
+
+.nickname {
+  margin: 0;
+}
+
+.comment {
+  padding-top: 10px;
+  display: flex;
+}
+
+.comment-content {
+  margin: 0;
+}
+
+.comment-text {
+  margin-left: 15px;
+  width: 70%;
+  background: #fff;
+  padding: 0.5em 0.5em 0.5em !important;
+  border-radius: 10px;
+  position: relative;
+  border: solid 1px #ccc;
+  margin-bottom: 0.5em;
+}
+
+.comment-text:before {
+  content: "";
+  position: absolute;
+  top: 21px;
+  left: -21px;
+  margin-top: -8px;
+  border: 10px solid transparent;
+  border-right: 12px solid #fff;
+  z-index: 2;
+}
+
+.comment-text::after {
+  content: "";
+  position: absolute;
+  top: 21px;
+  left: -23px;
+  margin-top: -8px;
+  border: 10px solid transparent;
+  border-right: 12.2px solid #ccc;
+  z-index: 1;
+}
+
+.comment-text p {
+  margin: 0;
+  padding: 0;
+}
+
+.Form-Item-Label {
+  width: 100%;
+  letter-spacing: 0.05em;
+  font-weight: bold;
+}
+
+.Form-Item-Label-Required {
+  border-radius: 6px;
+  margin-right: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  width: 48px;
+  display: inline-block;
+  text-align: center;
+  background: #ea9999;
+  color: #fff;
+  font-size: 14px;
+}
+
+.Form-Item-Input {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-left: 40px;
+  padding-left: 1em;
+  padding-right: 1em;
+  height: 30px;
+  flex: 1;
+  width: 50%;
+  max-width: 50vw;
+  background: #eaedf2;
+  font-size: 18px;
+}
+
+.Form-Item-Textarea {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-left: 40px;
+  padding-left: 1em;
+  padding-right: 1em;
+  height: 100px;
+  flex: 1;
+  width: 80%;
+  max-width: 50vw;
+  background: #eaedf2;
+  font-size: 18px;
+}
+
+.Form-Button {
+  text-align: center;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 5%;
+  font-size: 12pt;
+  text-align: center;
+  cursor: pointer;
+  padding: 9px 9px;
+  background: rgba(255, 255, 255, 0.91);
+  color: #000000;
+  line-height: 1em;
+  opacity: 0.9;
+  transition: 0.3s;
+  box-shadow: 3px 3px 3px #666666;
+}
+
+.button:hover {
+  box-shadow: none;
+  opacity: 1;
+}
+
 .pagination {
   text-align: center;
 }
@@ -152,5 +290,8 @@ small {
   }
   .content img {
     max-width: 80vw;
+  }
+  .Form-Item-Textarea {
+    width: 70%;
   }
 }/*# sourceMappingURL=index.css.map */
