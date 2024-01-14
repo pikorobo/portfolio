@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
@@ -12,7 +13,8 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::latest() -> paginate(5);
-        return view('posts.index', ['posts' => $posts]);
+        $comments = Comment::all();
+        return view('posts.index', ['posts' => $posts, 'comments' => $comments]);
     }
 
     // 投稿作成フォーム表示
@@ -37,6 +39,21 @@ class PostController extends Controller
         }
 
         Post::create($validatedData);
+
+        return redirect()->route('posts.index');
+    }
+
+    // 投稿保存
+    public function storeComment(Request $request)
+    {
+        date_default_timezone_set('Asia/Tokyo');
+        $validatedData = $request->validate([
+            'nickname' => 'required|max:10',
+            'comment' => 'required|max:200',
+            'post_id' => 'required|integer',
+        ]);
+
+        Comment::create($validatedData);
 
         return redirect()->route('posts.index');
     }

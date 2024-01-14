@@ -43,6 +43,24 @@
                 <h2>{{ $post->title }}</h2>
                 <p>{!! $post->body !!}</p>
                 <p class="date">投稿日時:{!! $post->created_at !!}</p>
+                <div class="comments">
+                  @foreach ($comments as $comment)
+                    @if($post["id"] == $comment["post_id"])
+                    <p>{!! $comment->nickname !!}</p>
+                    <p>{!! $comment->comment !!}</p>
+                    @endif
+                  @endforeach
+                </div>
+                <form action="/posts/comment" method="post" enctype="multipart/form-data">
+                  @csrf
+                  <?php
+                    $post_id = $post["id"];
+                  ?>
+                  <input type="hidden" value=<?php echo $post_id ?> name="post_id">
+                  <input type="text" name="nickname" id="nickname" value="{{ old('nickname'); }}">
+                  <input type="text" name="comment" id="comment" value="{{ old('comment'); }}">
+                  <input type="submit">
+                </form>
             </div>
             @endforeach
         </ul>  

@@ -46,4 +46,5 @@ Route::prefix('posts')->group(function () {
     Route::post('/upload', [PostController::class, 'upload'])->name('posts.upload');
     Route::get('/index', [PostController::class, 'index'])->name('posts.index');
     Route::get('/show', [PostController::class, 'show'])->name('posts.show');
+    Route::post('/comment', [PostController::class, 'storeComment'])->name('posts.storeComment');
 });
